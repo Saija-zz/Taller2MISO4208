@@ -1,4 +1,4 @@
-/*
+
 //funcionalidad por default de este script
 describe('Los estudiantes login', function() {
     it('Visits los estudiantes and fails at login', function() {
@@ -66,7 +66,7 @@ describe('Los estudiantes login', function() {
     
     })
 })
-*/
+
 
 //busqueda de profesores
 describe('Los estudiantes login', function() {
@@ -75,20 +75,24 @@ describe('Los estudiantes login', function() {
         cy.contains('Cerrar').click()
         //Lineas nuevas  
         
-	cy.wait(1000)
-
-	//cy.get('.Select-multi-value-wrapper').find('input[aria-activedescendant="react-select-required_error_checksum--value"]').click().type('mario')
-
-
-
-	//cy.get('.Select-multi-value-wrapper').find('.Select-input').click({force: true}).type('mario')
-	cy.get('.Select-multi-value-wrapper').find('.Select-input').find('input').click({force: true}).type('mario linares')
-
 	cy.wait(1500)
 
 
+	//vamos a buscar a Mario...
+	cy.get('.Select-multi-value-wrapper').find('.Select-input').find('input').click({force: true}).type('mario linares')
+
+	cy.wait(3000)
+
+
+	//seleccionamos a Mario del dropdown
 	cy.get('.Select-menu-outer').find('div[id="react-select-required_error_checksum--option-0"]').click()
 	//.find('div[id="react-select-required_error_checksum--list"]').find('div[id="react-select-required_error_checksum--option-0"]').click()
+
+	cy.wait(2000);
+
+	//vamos a filtrar por materia
+
+	cy.get('.jsx-2663297193').find('input[name="id:ISIS3510"]').click()
 
       
     })
